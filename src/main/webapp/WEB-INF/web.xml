@@ -1,8 +1,9 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
 
-<web-app>
   <display-name>Archetype Created Web Application</display-name>
   <context-param>
       <param-name>Usuario</param-name>
@@ -11,35 +12,36 @@
   <context-param>
       <param-name>Senha</param-name>
       <param-value>Sis12345</param-value>
-  </context-param>  
+  </context-param>
+  <filter>
+  	<filter-name>LoginFilter</filter-name>
+  	<filter-class>br.edu.estacio.interfaces.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>LoginFilter</filter-name>
+  	<url-pattern>/Cadastro</url-pattern>
+  	<url-pattern>/Listagem</url-pattern>
+  	<url-pattern>/Excluir/*</url-pattern>
+  	<url-pattern>/Editar/*</url-pattern>
+  </filter-mapping>  
   <servlet>
   	<servlet-name>Cadastro</servlet-name>
-  	<display-name>Cadastro</display-name>
-  	<description></description>
   	<servlet-class>br.edu.estacio.interfaces.Cadastro</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>Listagem</servlet-name>
-  	<display-name>Listagem</display-name>
-  	<description></description>
   	<servlet-class>br.edu.estacio.interfaces.Listagem</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>Excluir</servlet-name>
-  	<display-name>Excluir</display-name>
-  	<description></description>
   	<servlet-class>br.edu.estacio.interfaces.Excluir</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>Editar</servlet-name>
-  	<display-name>Editar</display-name>
-  	<description></description>
   	<servlet-class>br.edu.estacio.interfaces.Editar</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>Login</servlet-name>
-  	<display-name>Login</display-name>
-  	<description></description>
   	<servlet-class>br.edu.estacio.interfaces.Login</servlet-class>
   </servlet>
   <servlet-mapping>
