@@ -43,6 +43,10 @@ public class Cadastro extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String nome = request.getParameter("nome");
 		
+		if (request.getSession().getAttribute("pessoas")==null){
+			pessoas.getPessoas().clear();
+		}
+		
 		if (nome != null && !"".equals(nome)){
 			Pessoa temp = new Pessoa();
 			temp.setCodigo(contador);
